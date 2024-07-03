@@ -7,10 +7,10 @@ public record MapStaticData(
     [JsonProperty("mapItemsW")] object[] ItemsW,
     [JsonProperty("mapTextItems")] MapStaticData.TextItem[] TextItems,
     [JsonProperty("lastUpdated")] double LastUpdatedUnix,
-    [JsonProperty("version")] byte Version
+    [JsonProperty("version")] int Version
 )
 {
-    public DateTime LastUpdated => TimeUtils.FromUnix(LastUpdatedUnix);
+    [JsonIgnore] public DateTime LastUpdated => TimeUtils.FromUnix(LastUpdatedUnix);
 
     public record TextItem(
         [JsonProperty("text")] string Text,

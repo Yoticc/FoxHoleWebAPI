@@ -11,7 +11,7 @@ public record War(
     [JsonProperty("requiredVictoryTowns")] int RequiredVictoryTowns
 )
 {
-    public DateTime? ConquestStartTimeStamp => TimeUtils.FromUnix(ConquestStartUnixTimeStamp);
-    public DateTime? ConquestEndTimeStamp => TimeUtils.FromUnix(ConquestEndUnixTimeStamp);
-    public DateTime? ConquestResistanceTimeStamp => TimeUtils.FromUnix(ConquestResistanceUnixTimeStamp);
+    [JsonIgnore] public DateTime? ConquestStartTimeStamp => TimeUtils.FromUnix(ConquestStartUnixTimeStamp);
+    [JsonIgnore] public DateTime? ConquestEndTimeStamp => TimeUtils.FromUnix(ConquestEndUnixTimeStamp);
+    [JsonIgnore] public DateTime? ConquestResistanceTimeStamp => TimeUtils.FromUnix(ConquestResistanceUnixTimeStamp);
 };

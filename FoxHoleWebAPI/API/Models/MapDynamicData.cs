@@ -9,10 +9,10 @@ public record MapDynamicData(
     [JsonProperty("mapItemsW")] object[] ItemsW,
     [JsonProperty("mapTextItems")] object[] TextItems,
     [JsonProperty("lastUpdated")] double LastUpdatedUnix,
-    [JsonProperty("version")] byte Version
+    [JsonProperty("version")] int Version
 )
 {
-    public DateTime LastUpdated => TimeUtils.FromUnix(LastUpdatedUnix);
+    [JsonIgnore] public DateTime LastUpdated => TimeUtils.FromUnix(LastUpdatedUnix);
 
     public record MapItem(
         [JsonProperty("teamId")] FractionEnum Fraction,
